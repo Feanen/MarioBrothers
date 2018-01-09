@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoombaController : MonoBehaviour {
+public class GoombaController : MonoBehaviour, IEnemy {
 
 	[SerializeField]
 	private Vector2 velocity;
@@ -17,7 +17,7 @@ public class GoombaController : MonoBehaviour {
 
 	private Animator animatorController;
 
-	private bool grounded = false;
+	private bool grounded;
 	private bool isWalkingRight = false;
 	private bool shouldDie = false;
 	private float timeToDestroy;
@@ -32,8 +32,10 @@ public class GoombaController : MonoBehaviour {
 	private GoombaState state = GoombaState.falling;
 
 	void Start () {
+		
 		animatorController = GetComponent<Animator> ();
 		enabled = false;
+		grounded = false;
 		Fall ();
 	}
 
@@ -48,6 +50,7 @@ public class GoombaController : MonoBehaviour {
 
 	void UpdateAnimationStates()
 	{
+		
 		if (state == GoombaState.dead)
 			animatorController.SetBool (AppAnimationVariables.IS_DEAD, true);
 	}
@@ -100,8 +103,6 @@ public class GoombaController : MonoBehaviour {
 
 			CheckWallRays (pos, scale.x);
 
-
-			Debug.Log (pos.y);
 			transform.localPosition = pos;
 			transform.localScale = scale;
 		}
@@ -131,6 +132,7 @@ public class GoombaController : MonoBehaviour {
 			pos.y = ray.collider.bounds.center.y + ray.collider.bounds.size.y / 2 + AppConsts.APP_TILE_HEIGHT / 2;
 			velocity.y = 0;
 			grounded = true;
+			Debug.Log ("tesst");
 			state = GoombaState.walking;
 		} else {
 			if (state != GoombaState.falling)
@@ -142,13 +144,13 @@ public class GoombaController : MonoBehaviour {
 
 	void CheckWallRays(Vector3 pos, float dir) {
 
-		Vector2 originTop = new Vector2 (pos.x + .06f * dir, pos.y + AppConsts.APP_TILE_HEIGHT / 2);
+		Vector2 originTop = new Vector2 (pos.x + .06f * dir, pos.y + AppConsts.APP_TILE_HEIGHT / 2 - .01f);
 		Vector2 originMiddle = new Vector2 (pos.x + .06f * dir, pos.y);
-		Vector2 originBottom = new Vector2 (pos.x + .06f * dir, pos.y - AppConsts.APP_TILE_HEIGHT / 2);
+		Vector2 originBottom = new Vector2 (pos.x + .06f * dir, pos.y - AppConsts.APP_TILE_HEIGHT / 2 + .01f);
 
-		RaycastHit2D wallTop = Physics2D.Raycast (originTop, Vector2.down, velocity.y * Time.deltaTime, wallMask);
-		RaycastHit2D wallMiddle = Physics2D.Raycast (originMiddle, Vector2.down, velocity.y * Time.deltaTime, wallMask);
-		RaycastHit2D wallBottom = Physics2D.Raycast (originBottom, Vector2.down, velocity.y * Time.deltaTime, wallMask);
+		RaycastHit2D wallTop = Physics2D.Raycast (originTop, new Vector2(dir, 0), velocity.y * Time.deltaTime, wallMask);
+		RaycastHit2D wallMiddle = Physics2D.Raycast (originMiddle, new Vector2(dir, 0), velocity.y * Time.deltaTime, wallMask);
+		RaycastHit2D wallBottom = Physics2D.Raycast (originBottom, new Vector2(dir, 0), velocity.y * Time.deltaTime, wallMask);
 
 		if (wallTop.collider != null || wallMiddle.collider != null || wallBottom.collider != null) {
 
@@ -174,16 +176,15 @@ public class GoombaController : MonoBehaviour {
 		this.enabled = true;
 	}
 
-	void Fall(){
+	void Fall() {
 
 		velocity.y = 0;
 		state = GoombaState.falling;
 		grounded = false;
 	}
-
-	void OnTriggerEnter2D( Collider2D coll ) {
-		Debug.Log ("test");
-		if (coll.gameObject.tag == "Player")
-			Destroy (this.gameObject);
+		
+	public string GetScriptName() {
+		Debug.Log (this.GetType ().Name);
+		return this.GetType().Name;
 	}
 }

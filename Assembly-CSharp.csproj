@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\Const\AppConsts.cs" />
      <Compile Include="Assets\Scripts\Const\AppTagsAndLayers.cs" />
      <Compile Include="Assets\Scripts\Enemies\GoombaController.cs" />
+     <Compile Include="Assets\Scripts\Interfaces\IEnemy.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity5/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

@@ -110,7 +110,7 @@ public class PlayerController : MonoBehaviour {
 		if (velocity.y >= 0) {
 			pos = CheckCeilingRays (pos);
 		}
-
+			
 		transform.localPosition = pos;
 		transform.localScale = scale;
 	}
@@ -139,7 +139,7 @@ public class PlayerController : MonoBehaviour {
 			animator.SetBool (AppAnimationVariables.IS_JUMPING, false);
 		}
 
-		if (jump) {
+		if (jump || velocity.y < - Time.deltaTime * 10) {
 			animator.SetBool (AppAnimationVariables.IS_JUMPING, true);
 		}
 	}
@@ -166,14 +166,15 @@ public class PlayerController : MonoBehaviour {
 			}
 
 
-//			if (hitRay.collider.tag == AppTagsAndLayers.ENEMY_TAG && pos.y >= hitRay.collider.transform.position.y + hitRay.collider.bounds.size.y) {
-//
-//				hitRay.collider.GetComponent<GoombaController> ().Crush ();
-//				bounce = true;
-//
-//			} else if (hitRay.collider.tag == AppTagsAndLayers.ENEMY_TAG && this.transform.position.y < hitRay.collider.transform.position.y + hitRay.collider.bounds.size.y) {
-//				
-//			}
+			if (hitRay.collider.tag == AppTagsAndLayers.ENEMY_TAG && pos.y >= hitRay.collider.transform.position.y + hitRay.collider.bounds.size.y) {
+
+				hitRay.collider.gameObject.GetComponent<IEnemy> ().Crush ();
+
+				bounce = true;
+
+			} else if (hitRay.collider.tag == AppTagsAndLayers.ENEMY_TAG && this.transform.position.y < hitRay.collider.transform.position.y + hitRay.collider.bounds.size.y) {
+				
+			}
 
 			pos.y = hitRay.collider.bounds.center.y + hitRay.collider.bounds.size.y / 2 + AppConsts.APP_TILE_HEIGHT / 2;
 
@@ -185,7 +186,7 @@ public class PlayerController : MonoBehaviour {
 
 		} else {
 
-			if (animState != AnimationState.jumping) {
+			if (animState != AnimationState.jumping ) {
 
 				Fall ();
 			}
@@ -197,9 +198,9 @@ public class PlayerController : MonoBehaviour {
 	Vector3 CheckWallRays(Vector3 pos, float dir) {
 		
 		//стартовая точка лучей
-		Vector2 originTop = new Vector2 (pos.x + dir * .06f, pos.y + .06f);
-		Vector2 originMiddle = new Vector2 (pos.x + dir * .06f, pos.y);
-		Vector2 originBottom = new Vector2 (pos.x + dir * .06f, pos.y - .06f);
+		Vector2 originTop = new Vector2 (pos.x + dir * .07f, pos.y + .07f);
+		Vector2 originMiddle = new Vector2 (pos.x + dir * .07f, pos.y);
+		Vector2 originBottom = new Vector2 (pos.x + dir * .07f, pos.y - .07f);
 
 		//сами лучи
 		RaycastHit2D wallTop = Physics2D.Raycast (originTop, new Vector2 (dir, 0), velocity.x * Time.deltaTime, wallMask);
@@ -210,6 +211,7 @@ public class PlayerController : MonoBehaviour {
 		if (wallTop.collider != null || wallMiddle.collider != null || wallBottom.collider != null) {
 
 			pos.x -= velocity.x * Time.deltaTime * dir;
+
 		}
 
 		return pos;

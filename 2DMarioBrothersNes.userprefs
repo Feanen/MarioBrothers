@@ -1,14 +1,15 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Enemies\GoombaController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\old mario\Assets\NewPlayerController.cs">
     <Files>
-      <File FileName="Assets\Scripts\PlayerController.cs" Line="176" Column="7" />
-      <File FileName="Assets\Scripts\Const\AppConsts.cs" Line="1" Column="16" />
-      <File FileName="Assets\Scripts\Const\AppAnimationVariables.cs" Line="8" Column="1" />
+      <File FileName="Assets\Scripts\PlayerController.cs" Line="21" Column="9" />
+      <File FileName="Assets\Scripts\Const\AppConsts.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Const\AppAnimationVariables.cs" Line="1" Column="1" />
       <File FileName="..\old mario\Assets\EnemyController.cs" Line="50" Column="50" />
-      <File FileName="Assets\Scripts\Enemies\GoombaController.cs" Line="131" Column="106" />
+      <File FileName="Assets\Scripts\Enemies\GoombaController.cs" Line="149" Column="100" />
       <File FileName="Assets\Scripts\Const\AppTagsAndLayers.cs" Line="1" Column="39" />
-      <File FileName="..\old mario\Assets\NewPlayerController.cs" Line="200" Column="19" />
+      <File FileName="..\old mario\Assets\NewPlayerController.cs" Line="250" Column="83" />
+      <File FileName="Assets\Scripts\Interfaces\IEnemy.cs" Line="3" Column="15" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
