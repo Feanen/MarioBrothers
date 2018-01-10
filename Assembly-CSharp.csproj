@@ -46,6 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Abstract\Block.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraColliderController.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Const\AppAnimationVariables.cs" />
@@ -53,7 +54,9 @@
      <Compile Include="Assets\Scripts\Const\AppTagsAndLayers.cs" />
      <Compile Include="Assets\Scripts\Enemies\GoombaController.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IEnemy.cs" />
+     <Compile Include="Assets\Scripts\Interfaces\IHitting.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\Question\qCoinBlockController.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity5/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

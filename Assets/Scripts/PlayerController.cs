@@ -25,10 +25,10 @@ public class PlayerController : MonoBehaviour {
 
 	public enum PlayerState
 	{
-		small,
-		big,
-		fire,
-		invulnerable
+		small = 0,
+		big = 1,
+		fire = 2,
+		invulnerable = 3
 	}
 
 	private PlayerState playerState = PlayerState.small;
@@ -240,10 +240,10 @@ public class PlayerController : MonoBehaviour {
 				hitRay = ceilRight;
 			}
 
-			/*if (hitRay.collider.tag == GameTagsAndLayers.QUESTION_BLOCK_TAG) {
+			if (hitRay.collider.tag == AppTagsAndLayers.GROUND_TAG && hitRay.collider.GetComponent<Block>()) {
 
-				hitRay.collider.GetComponent<CoinInBlockController> ().QuestionBlockBounce ();
-			}*/
+				hitRay.collider.GetComponent<Block> ().HittingBlock ();
+			}
 
 			pos.y = hitRay.collider.bounds.center.y - hitRay.collider.bounds.size.y / 2 - AppConsts.APP_TILE_HEIGHT / 2;
 

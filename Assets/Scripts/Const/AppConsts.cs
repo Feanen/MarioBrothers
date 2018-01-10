@@ -6,4 +6,10 @@
 
 	public const string PLAYER_NAME = "Player";
 
+	public const float BLOCK_BOUNCE_HEIGHT = APP_TILE_HEIGHT * .5f ;
+	public const float BLOCK_BOUNCE_SPEED = 1;
+
+	//path to resource objects
+	public const string COIN_OBJECT_PATH = "Collectable/coin";
+
 }

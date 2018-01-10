@@ -132,7 +132,7 @@ public class GoombaController : MonoBehaviour, IEnemy {
 			pos.y = ray.collider.bounds.center.y + ray.collider.bounds.size.y / 2 + AppConsts.APP_TILE_HEIGHT / 2;
 			velocity.y = 0;
 			grounded = true;
-			Debug.Log ("tesst");
+
 			state = GoombaState.walking;
 		} else {
 			if (state != GoombaState.falling)
@@ -181,10 +181,5 @@ public class GoombaController : MonoBehaviour, IEnemy {
 		velocity.y = 0;
 		state = GoombaState.falling;
 		grounded = false;
-	}
-		
-	public string GetScriptName() {
-		Debug.Log (this.GetType ().Name);
-		return this.GetType().Name;
 	}
 }
