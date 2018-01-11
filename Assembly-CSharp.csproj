@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\Interfaces\IHitting.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Question\qCoinBlockController.cs" />
+     <Compile Include="Assets\qPowerUpBlockDay.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity5/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

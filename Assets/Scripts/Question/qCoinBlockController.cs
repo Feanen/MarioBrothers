@@ -9,11 +9,6 @@ public class qCoinBlockController : Block {
 	[SerializeField]
 	private float gravity;
 
-	void FixedUpdate () {
-
-		UpdateAnimation ();
-	}
-
 	void InstantiateCoin () {
 
 		//GameObject instance = Instantiate(Resources.Load("enemy", typeof(GameObject))) as GameObject;
@@ -47,6 +42,7 @@ public class qCoinBlockController : Block {
 			if (coin.transform.localPosition.y <= originPosition.y + AppConsts.APP_TILE_HEIGHT) {
 
 				Destroy (coin.gameObject);
+				Destroy (this);
 				break;
 			}
 
@@ -55,7 +51,7 @@ public class qCoinBlockController : Block {
 	}
 
 	override protected IEnumerator Bounce() {
-
+		
 		InstantiateCoin ();
 
 		StartCoroutine(base.Bounce ());

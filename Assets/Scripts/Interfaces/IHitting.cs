@@ -1,3 +1,3 @@
 ﻿public interface IHitting  {
-	void HittingBlock();
+	void HittingBlock( PlayerController.PlayerState plrState );
 }

@@ -25,10 +25,10 @@ public class PlayerController : MonoBehaviour {
 
 	public enum PlayerState
 	{
-		small = 0,
-		big = 1,
-		fire = 2,
-		invulnerable = 3
+		small,
+		big,
+		fire,
+		invulnerable
 	}
 
 	private PlayerState playerState = PlayerState.small;
@@ -242,7 +242,7 @@ public class PlayerController : MonoBehaviour {
 
 			if (hitRay.collider.tag == AppTagsAndLayers.GROUND_TAG && hitRay.collider.GetComponent<Block>()) {
 
-				hitRay.collider.GetComponent<Block> ().HittingBlock ();
+				hitRay.collider.GetComponent<Block> ().HittingBlock ( playerState );
 			}
 
 			pos.y = hitRay.collider.bounds.center.y - hitRay.collider.bounds.size.y / 2 - AppConsts.APP_TILE_HEIGHT / 2;

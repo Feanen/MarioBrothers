@@ -11,6 +11,7 @@ public abstract class Block : MonoBehaviour, IHitting {
 	protected Vector2 originPosition;
 
 	protected Animator animController;
+	protected PlayerController.PlayerState playerState;
 
 	public enum BlockState
 	{
@@ -26,20 +27,27 @@ public abstract class Block : MonoBehaviour, IHitting {
 		originPosition = transform.localPosition;
 	}
 
+	void FixedUpdate() {
+
+		UpdateAnimation ();
+	}
+
 	protected void UpdateAnimation() {
 		if (blockState == BlockState.final)
 			animController.SetBool (AppAnimationVariables.NOT_HITTABLE, true);
 	}
 
-	public void HittingBlock() {
-		
+	public void HittingBlock( PlayerController.PlayerState plrState ) {
+
+		playerState = plrState;
+
 		if (canBounce) {
 			StartCoroutine (Bounce ());
 		}
 	}
 
 	virtual protected IEnumerator Bounce() {
-
+		
 		while (true) {
 			
 			transform.localPosition = new Vector2 (transform.localPosition.x, transform.localPosition.y + bounceSpeed * Time.deltaTime);

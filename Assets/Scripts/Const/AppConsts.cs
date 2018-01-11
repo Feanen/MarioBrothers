@@ -11,5 +11,11 @@
 
 	//path to resource objects
 	public const string COIN_OBJECT_PATH = "Collectable/coin";
+	public const string MUSHROOM_OBJECT_PATH = "Collectable/mushroom";
 
+	//player states
+	public const string PLAYER_STATE_SMALL = "small";
+	public const string PLAYER_STATE_BIG = "big";
+	public const string PLAYER_STATE_FIRE = "fire";
+	public const string PLAYER_STATE_INVUL = "invulnerable";
 }
