@@ -46,7 +46,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Abstract\AI Controller.cs" />
      <Compile Include="Assets\Scripts\Abstract\Block.cs" />
+     <Compile Include="Assets\Scripts\Abstract\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\Abstract\PowerUps Controller.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraColliderController.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Const\AppAnimationVariables.cs" />
@@ -55,7 +58,11 @@
      <Compile Include="Assets\Scripts\Enemies\GoombaController.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IEnemy.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IHitting.cs" />
-     <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\Player\BigMarioController.cs" />
+     <Compile Include="Assets\Scripts\Player\FireMarioController.cs" />
+     <Compile Include="Assets\Scripts\Player\SmallMarioController.cs" />
+     <Compile Include="Assets\Scripts\PowerUps\FlowerController.cs" />
+     <Compile Include="Assets\Scripts\PowerUps\MushroomController.cs" />
      <Compile Include="Assets\Scripts\Question\qCoinBlockController.cs" />
      <Compile Include="Assets\qPowerUpBlockDay.cs" />
  <Reference Include="UnityEngine.UI">

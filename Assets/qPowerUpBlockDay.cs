@@ -42,12 +42,12 @@ public class qPowerUpBlockDay : Block {
 
 	private void InstantiatePowerUp() {
 
-		GameObject powerUp = new GameObject ();
+		GameObject powerUp = null;
 
 		if (playerState.ToString () == AppConsts.PLAYER_STATE_SMALL) {
 			powerUp = LoadRes (AppConsts.MUSHROOM_OBJECT_PATH);
 		} else if (playerState.ToString () == AppConsts.PLAYER_STATE_BIG || playerState.ToString () == AppConsts.PLAYER_STATE_FIRE) {
-			powerUp = LoadRes (AppConsts.COIN_OBJECT_PATH);
+			powerUp = LoadRes (AppConsts.FLOWER_OBJECT_PATH);
 		}
 					
 		powerUp.transform.SetParent (this.transform.parent);

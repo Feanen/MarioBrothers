@@ -1,19 +1,21 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\qPowerUpBlockDay.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Abstract\PlayerController.cs">
     <Files>
-      <File FileName="Assets\Scripts\PlayerController.cs" Line="31" Column="15" />
-      <File FileName="Assets\Scripts\Const\AppConsts.cs" Line="14" Column="66" />
-      <File FileName="Assets\Scripts\Const\AppAnimationVariables.cs" Line="1" Column="1" />
-      <File FileName="..\old mario\Assets\EnemyController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Const\AppConsts.cs" Line="19" Column="62" />
+      <File FileName="Assets\Scripts\Const\AppAnimationVariables.cs" Line="10" Column="39" />
       <File FileName="Assets\Scripts\Enemies\GoombaController.cs" Line="20" Column="1" />
       <File FileName="Assets\Scripts\Const\AppTagsAndLayers.cs" Line="1" Column="1" />
       <File FileName="..\old mario\Assets\NewPlayerController.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Interfaces\IEnemy.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Abstract\Block.cs" Line="32" Column="22" />
-      <File FileName="Assets\Scripts\Question\qCoinBlockController.cs" Line="59" Column="3" />
-      <File FileName="Assets\Scripts\Interfaces\IHitting.cs" Line="3" Column="2" />
-      <File FileName="Assets\qPowerUpBlockDay.cs" Line="10" Column="41" />
+      <File FileName="Assets\Scripts\Abstract\Block.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Abstract\AI Controller.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Abstract\PowerUps Controller.cs" Line="103" Column="4" />
+      <File FileName="Assets\Scripts\Abstract\PlayerController.cs" Line="76" Column="11" />
+      <File FileName="Assets\Scripts\Player\SmallMarioController.cs" Line="13" Column="5" />
+      <File FileName="Assets\Scripts\Player\BigMarioController.cs" Line="34" Column="31" />
+      <File FileName="Assets\qPowerUpBlockDay.cs" Line="50" Column="51" />
+      <File FileName="Assets\Scripts\Camera\CameraFollow.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
