@@ -16,6 +16,9 @@ public abstract class PlayerController : MonoBehaviour {
 	protected float bounceHeight;
 	[SerializeField]
 	protected float gravity;
+	[SerializeField]
+	protected float maxSpeed = 2;
+
 
 	protected bool walk, walk_right, walk_left, jump;
 	protected bool grounded = false;
@@ -25,6 +28,7 @@ public abstract class PlayerController : MonoBehaviour {
 
 	protected float playerTileWidth;
 	protected float playerTileHeight;
+	protected float acceleration = .001f;
 
 	protected Animator animator;
 
@@ -74,6 +78,14 @@ public abstract class PlayerController : MonoBehaviour {
 		Vector3 scale = transform.localScale;
 
 		if (walk) {
+
+			if (velocity.x < maxSpeed) {
+				velocity = new Vector2 (velocity.x + acceleration, velocity.y);
+				if (animator.GetCurrentAnimatorStateInfo (0).IsName("walking")) {
+					animator.speed = velocity.x;
+				}
+			}
+
 			if (walk_left) {
 				pos.x -= velocity.x * Time.deltaTime;
 				scale.x = - AppConsts.OBJECT_SCALE;
@@ -236,9 +248,9 @@ public abstract class PlayerController : MonoBehaviour {
 	//метод, определяющий RayCasts для определения коллизий с объектами над головой
 	protected virtual Vector3 CheckCeilingRays (Vector3 pos) {
 
-		Vector2 originLeft = new Vector2 (pos.x - (playerTileWidth * .5f - .02f), pos.y + playerTileHeight);
-		Vector2 originMiddle = new Vector2 (pos.x, pos.y + playerTileHeight);
-		Vector2 originRight = new Vector2 (pos.x + (playerTileWidth * .5f - .02f), pos.y + playerTileHeight);
+		Vector2 originLeft = new Vector2 (pos.x - (playerTileWidth * .5f - .02f), pos.y + playerTileHeight -.01f);
+		Vector2 originMiddle = new Vector2 (pos.x, pos.y + playerTileHeight -.01f);
+		Vector2 originRight = new Vector2 (pos.x + (playerTileWidth * .5f - .02f), pos.y + playerTileHeight -.01f);
 
 		RaycastHit2D ceilLeft = Physics2D.Raycast (originLeft, Vector3.up, velocity.y * Time.deltaTime, groundMask);
 		RaycastHit2D ceilMiddle = Physics2D.Raycast (originMiddle, Vector3.up, velocity.y * Time.deltaTime, groundMask);

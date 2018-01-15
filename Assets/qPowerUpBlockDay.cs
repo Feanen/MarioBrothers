@@ -59,16 +59,18 @@ public class qPowerUpBlockDay : Block {
 
 		while (true) {
 
-			powerUp.transform.localPosition = new Vector2 (powerUp.transform.localPosition.x, powerUp.transform.localPosition.y + powerUpVerticalSpeed * Time.deltaTime);
+			if (powerUp == null)
+				break;
+
+			powerUp.transform.localPosition = new Vector3(powerUp.transform.localPosition.x, powerUp.transform.localPosition.y + powerUpVerticalSpeed * Time.deltaTime, transform.position.z + 1);
 
 			if (powerUp.transform.localPosition.y >= originPosition.y + AppConsts.APP_TILE_HEIGHT) {
-				powerUp.transform.localPosition = new Vector2( originPosition.x, originPosition.y + AppConsts.APP_TILE_HEIGHT);
+				powerUp.transform.localPosition = new Vector3( originPosition.x, originPosition.y + AppConsts.APP_TILE_HEIGHT, transform.position.z + 1);
 				break;
 			}
 
 			yield return null;
 		}
-
 	}
 
 	private GameObject LoadRes( string path ) {

@@ -1,0 +1,15 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Abstract\PlayerController.cs">
+    <Files>
+      <File FileName="Assets\qPowerUpBlockDay.cs" Line="68" Column="116" />
+      <File FileName="Assets\Scripts\Camera\CameraFollow.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Camera\CameraColliderController.cs" Line="12" Column="23" />
+      <File FileName="Assets\Scripts\Abstract\PlayerController.cs" Line="31" Column="37" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
